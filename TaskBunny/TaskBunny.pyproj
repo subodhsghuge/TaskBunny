@@ -44,6 +44,7 @@
     <Content Include="TaskBunny\static\content\bootstrap.css" />
     <Content Include="TaskBunny\static\content\bootstrap.min.css" />
     <Content Include="TaskBunny\static\content\site.css" />
+    <Content Include="TaskBunny\static\content\Style.css" />
     <Content Include="TaskBunny\static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="TaskBunny\static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="TaskBunny\static\fonts\glyphicons-halflings-regular.ttf" />
@@ -67,6 +68,7 @@
     <Content Include="TaskBunny\templates\contact.html" />
     <Content Include="TaskBunny\templates\index.html" />
     <Content Include="TaskBunny\templates\layout.html" />
+    <Content Include="TaskBunny\templates\login.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

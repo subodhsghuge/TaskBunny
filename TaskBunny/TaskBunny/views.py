@@ -3,18 +3,16 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+from flask import Flask, flash, redirect, render_template, request, session, abort
 from TaskBunny import app
 
 @app.route('/')
-@app.route('/home')
 def home():
-    """Renders the home page."""
-    return render_template(
-        'index.html',
-        title='Home Page',
-        year=datetime.now().year,
-    )
+    if not session.get('logged_in'):
+        print("going to login")
+        return render_template('login.html')
+    else:
+        return render_template('layout.html')
 
 @app.route('/contact')
 def contact():
@@ -35,3 +33,21 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+app = Flask(__name__)
+ 
+
+ 
+@app.route('/login', methods=['POST'])
+def do_admin_login():
+    print("reached login")
+    print(request.form['password'])
+    if request.form['password'] == 'password' and request.form['username'] == 'admin':
+        session['logged_in'] = True
+    else:
+        flash('wrong password!')
+    return home()
+ 
+if __name__ == "__main__":
+    app.secret_key = os.urandom(12)
+    app.run()
